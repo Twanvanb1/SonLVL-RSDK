@@ -38,7 +38,7 @@ namespace SonicRetro.SonLVL.GUI
 		void LevelData_PaletteChangedEvent()
 		{
 			LevelData.BmpPal.Entries.CopyTo(LevelImgPalette.Entries, 0);
-			LevelImgPalette.Entries[LevelData.ColorTransparent] = LevelData.NewPalette[160];
+			LevelImgPalette.Entries[LevelData.ColorTransparent] = LevelData.NewPalette[0];
 			if (invertColorsToolStripMenuItem.Checked)
 				for (int i = 0; i < 256; i++)
 					LevelImgPalette.Entries[i] = LevelImgPalette.Entries[i].Invert();
@@ -632,7 +632,7 @@ namespace SonicRetro.SonLVL.GUI
 			undoSystem.Init();
 			LevelImgPalette = new Bitmap(1, 1, PixelFormat.Format8bppIndexed).Palette;
 			LevelData.BmpPal.Entries.CopyTo(LevelImgPalette.Entries, 0);
-			LevelImgPalette.Entries[LevelData.ColorTransparent] = LevelData.NewPalette[160];
+			LevelImgPalette.Entries[LevelData.ColorTransparent] = LevelData.NewPalette[0];
 			LevelImgPalette.Entries[LevelData.ColorWhite] = Color.White;
 			LevelImgPalette.Entries[LevelData.ColorYellow] = Color.Yellow;
 			LevelImgPalette.Entries[LevelData.ColorBlack] = Color.Black;
@@ -1403,7 +1403,7 @@ namespace SonicRetro.SonLVL.GUI
 				loaded = false;
 				LevelData.ClearLevel();
 				LevelData.BmpPal.Entries.CopyTo(LevelImgPalette.Entries, 0);
-				LevelImgPalette.Entries[LevelData.ColorTransparent] = LevelData.NewPalette[160];
+				LevelImgPalette.Entries[LevelData.ColorTransparent] = LevelData.NewPalette[0];
 				LevelImgPalette.Entries[LevelData.ColorWhite] = Color.White;
 				LevelImgPalette.Entries[LevelData.ColorYellow] = Color.Yellow;
 				LevelImgPalette.Entries[LevelData.ColorBlack] = Color.Black;
@@ -4051,7 +4051,7 @@ namespace SonicRetro.SonLVL.GUI
 			if (!loaded) return;
 			BitmapBits32 bmp = new BitmapBits32(128, 128);
 			LevelData.NewPalette.CopyTo(bmp.Palette, 0);
-			bmp.Clear(LevelData.NewPalette[160]);
+			bmp.Clear(LevelData.NewPalette[0]);
 			if (lowToolStripMenuItem.Checked && highToolStripMenuItem.Checked)
 				bmp.DrawSprite(LevelData.ChunkSprites[SelectedChunk], 0, 0);
 			else if (lowToolStripMenuItem.Checked)
@@ -4901,7 +4901,7 @@ namespace SonicRetro.SonLVL.GUI
 				{
 					BitmapBits32 bmp = new BitmapBits32(16, 16);
 					LevelData.NewPalette.CopyTo(bmp.Palette, 0);
-					bmp.Clear(LevelData.NewPalette[160]);
+					bmp.Clear(LevelData.NewPalette[0]);
 					bmp.DrawBitmap(LevelData.NewTiles[SelectedTile], 0, 0);
 					bmp.Palette[1] = Color.White;
 					bmp.DrawBitmap(LevelData.NewColBmpBits[SelectedTile][collisionLayerSelector.SelectedIndex], 0, 0);

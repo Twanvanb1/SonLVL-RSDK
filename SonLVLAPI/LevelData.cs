@@ -700,7 +700,7 @@ namespace SonicRetro.SonLVL.API
 				bounds = new Rectangle(0, 0, FGWidth * 128, FGHeight * 128);
 			BitmapBits32 LevelImg8bpp = new BitmapBits32(bounds.Size);
 			NewPalette.CopyTo(LevelImg8bpp.Palette, 0);
-			LevelImg8bpp.Clear(NewPalette[160]);
+			LevelImg8bpp.Clear(NewPalette[0]);
 			objectsAboveHighPlane |= !includeObjects;
 			int colpath = -1;
 			if (collisionPath1)
@@ -889,7 +889,7 @@ namespace SonicRetro.SonLVL.API
 				bounds = new Rectangle(0, 0, BGWidth[layer] * 128, BGHeight[layer] * 128);
 			BitmapBits32 LevelImg8bpp = new BitmapBits32(bounds.Size);
 			NewPalette.CopyTo(LevelImg8bpp.Palette, 0);
-			LevelImg8bpp.Clear(NewPalette[160]);
+			LevelImg8bpp.Clear(NewPalette[0]);
 			int colpath = -1;
 			if (collisionPath1)
 				colpath = 0;
